@@ -16,6 +16,8 @@ import UIKit
 
 class BasicMapViewController: UIViewController {
   var statusLabel: UILabel!
+    
+  private var circle = GMSCircle()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,6 +41,12 @@ class BasicMapViewController: UIViewController {
       statusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       statusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
     ])
+    
+    circle.fillColor = .clear // Set this to any other colour to prevent the crash.
+    
+    circle.position = CLLocationCoordinate2D(latitude: 48.1351253, longitude: 11.5819805)
+    circle.radius = 5000
+    circle.map = mapView
   }
 }
 
